@@ -12,6 +12,7 @@
 		92E1CE74195C6DC800FA689B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E1CE73195C6DC800FA689B /* Images.xcassets */; };
 		92E1CE77195C6DC800FA689B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E1CE75195C6DC800FA689B /* MainMenu.xib */; };
 		92E1CE83195C6DC800FA689B /* MLSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1CE82195C6DC800FA689B /* MLSwiftTests.swift */; };
+		92E1CE8E195C6F3600FA689B /* hmm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1CE8D195C6F3600FA689B /* hmm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,8 @@
 		92E1CE7C195C6DC800FA689B /* MLSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E1CE81195C6DC800FA689B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E1CE82195C6DC800FA689B /* MLSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLSwiftTests.swift; sourceTree = "<group>"; };
+		92E1CE8C195C6E4E00FA689B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		92E1CE8D195C6F3600FA689B /* hmm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hmm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +78,11 @@
 		92E1CE6C195C6DC800FA689B /* MLSwift */ = {
 			isa = PBXGroup;
 			children = (
-				92E1CE71195C6DC800FA689B /* AppDelegate.swift */,
+				92E1CE90195C6F4600FA689B /* App */,
+				92E1CE8F195C6F3D00FA689B /* ML */,
 				92E1CE73195C6DC800FA689B /* Images.xcassets */,
-				92E1CE75195C6DC800FA689B /* MainMenu.xib */,
 				92E1CE6D195C6DC800FA689B /* Supporting Files */,
+				92E1CE8C195C6E4E00FA689B /* MyPlayground.playground */,
 			);
 			path = MLSwift;
 			sourceTree = "<group>";
@@ -107,6 +111,23 @@
 				92E1CE81195C6DC800FA689B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92E1CE8F195C6F3D00FA689B /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				92E1CE8D195C6F3600FA689B /* hmm.swift */,
+			);
+			name = ML;
+			sourceTree = "<group>";
+		};
+		92E1CE90195C6F4600FA689B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				92E1CE71195C6DC800FA689B /* AppDelegate.swift */,
+				92E1CE75195C6DC800FA689B /* MainMenu.xib */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E1CE72195C6DC800FA689B /* AppDelegate.swift in Sources */,
+				92E1CE8E195C6F3600FA689B /* hmm.swift in Sources */,
 				92E1CE70195C6DC800FA689B /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

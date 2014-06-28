@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92116D11195E498900A67F19 /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92116D10195E498900A67F19 /* matrix.swift */; };
 		92E1CE70195C6DC800FA689B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1CE6F195C6DC800FA689B /* main.swift */; };
 		92E1CE72195C6DC800FA689B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1CE71195C6DC800FA689B /* AppDelegate.swift */; };
 		92E1CE74195C6DC800FA689B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E1CE73195C6DC800FA689B /* Images.xcassets */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92116D0F195E47FF00A67F19 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
+		92116D10195E498900A67F19 /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
 		92E1CE6A195C6DC800FA689B /* MLSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E1CE6E195C6DC800FA689B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E1CE6F195C6DC800FA689B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -35,7 +38,7 @@
 		92E1CE7C195C6DC800FA689B /* MLSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MLSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E1CE81195C6DC800FA689B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E1CE82195C6DC800FA689B /* MLSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLSwiftTests.swift; sourceTree = "<group>"; };
-		92E1CE8C195C6E4E00FA689B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		92E1CE8C195C6E4E00FA689B /* BLAS.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BLAS.playground; sourceTree = "<group>"; };
 		92E1CE8D195C6F3600FA689B /* hmm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hmm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +85,8 @@
 				92E1CE8F195C6F3D00FA689B /* ML */,
 				92E1CE73195C6DC800FA689B /* Images.xcassets */,
 				92E1CE6D195C6DC800FA689B /* Supporting Files */,
-				92E1CE8C195C6E4E00FA689B /* MyPlayground.playground */,
+				92116D0F195E47FF00A67F19 /* MyPlayground.playground */,
+				92E1CE8C195C6E4E00FA689B /* BLAS.playground */,
 			);
 			path = MLSwift;
 			sourceTree = "<group>";
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				92E1CE8D195C6F3600FA689B /* hmm.swift */,
+				92116D10195E498900A67F19 /* matrix.swift */,
 			);
 			name = ML;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92116D11195E498900A67F19 /* matrix.swift in Sources */,
 				92E1CE72195C6DC800FA689B /* AppDelegate.swift in Sources */,
 				92E1CE8E195C6F3600FA689B /* hmm.swift in Sources */,
 				92E1CE70195C6DC800FA689B /* main.swift in Sources */,
@@ -421,6 +427,7 @@
 				92E1CE88195C6DC800FA689B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92E1CE89195C6DC800FA689B /* Build configuration list for PBXNativeTarget "MLSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +436,7 @@
 				92E1CE8B195C6DC800FA689B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

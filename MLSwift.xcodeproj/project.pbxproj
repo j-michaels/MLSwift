@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		92116D11195E498900A67F19 /* matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92116D10195E498900A67F19 /* matrix.swift */; };
+		923EDAFE195F9C45006F1643 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923EDAFD195F9C45006F1643 /* util.swift */; };
 		92E1CE70195C6DC800FA689B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1CE6F195C6DC800FA689B /* main.swift */; };
 		92E1CE72195C6DC800FA689B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E1CE71195C6DC800FA689B /* AppDelegate.swift */; };
 		92E1CE74195C6DC800FA689B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E1CE73195C6DC800FA689B /* Images.xcassets */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		92116D0F195E47FF00A67F19 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
 		92116D10195E498900A67F19 /* matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matrix.swift; sourceTree = "<group>"; };
+		923EDAFD195F9C45006F1643 /* util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
 		92E1CE6A195C6DC800FA689B /* MLSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E1CE6E195C6DC800FA689B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E1CE6F195C6DC800FA689B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		923EDAFC195F9C25006F1643 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				923EDAFD195F9C45006F1643 /* util.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		92E1CE61195C6DC700FA689B = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		92E1CE6C195C6DC800FA689B /* MLSwift */ = {
 			isa = PBXGroup;
 			children = (
+				923EDAFC195F9C25006F1643 /* Common */,
 				92E1CE90195C6F4600FA689B /* App */,
 				92E1CE8F195C6F3D00FA689B /* ML */,
 				92E1CE73195C6DC800FA689B /* Images.xcassets */,
@@ -237,6 +248,7 @@
 				92116D11195E498900A67F19 /* matrix.swift in Sources */,
 				92E1CE72195C6DC800FA689B /* AppDelegate.swift in Sources */,
 				92E1CE8E195C6F3600FA689B /* hmm.swift in Sources */,
+				923EDAFE195F9C45006F1643 /* util.swift in Sources */,
 				92E1CE70195C6DC800FA689B /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

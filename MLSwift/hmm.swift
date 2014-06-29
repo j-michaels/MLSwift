@@ -14,41 +14,52 @@ func ** (num: Double, power: Double) -> Double {
     return pow(num, power)
 }
 
-
-
-struct Mixture {
-    var weight: Matrix
+class Mixture {
+    var weight: Int
+    var variance = Matrix()
+    var mean = Matrix()
+    var inverseVariance = Matrix()
+    var denominator = 1
     
+    init(weight: Int) {
+        self.weight = weight
+    }
 }
 
 class State {
-    var mixtures = Array<Dictionary<String, Any>>()
-    var currentMixture = Dictionary<String, Any>()
+    var mixtures = Array<Mixture>()
+    var currentMixture: Mixture?
     
-    func switchNewMixture(weight: Int) {
-        currentMixture = ["weight": weight]
-        mixtures.append(currentMixture)
+    init() {
+
     }
     
-    func setCurrentMean(mean: Int) {
+    func switchNewMixture(weight: Int) {
+        currentMixture = Mixture(weight: weight)
+        mixtures.append(currentMixture!)
+    }
+    
+    func setCurrentMean(mean: Matrix) {
         // make sure that later when this is used, it's converted to a column vector
-        currentMixture["mean"] = mean
+        //currentMixture.mean = mean
     }
     
     func setMixtureMeanTotal(total: Int) {
-        currentMixture["mean total"] = total
+        //currentMixture["mean total"] = total
+    }
+    
+    func setMixtureVariance(variance: Any) {
+        
     }
     
     func weightedPDF(x: Int) {
         var i = 0
         for mixture in mixtures {
-            let mean = mixture["mean"]
-            let inverse_variance = mixture["inverse variance"]
-            let denominator = mixture["denominator"]
+            let mean = mixture.mean
+            let inverse_variance = mixture.inverseVariance
+            let denominator = mixture.denominator
             //let x_mu_diff = (x - mean)
-            
         }
-        
     }
 }
 
@@ -64,4 +75,12 @@ class SentenceHMM: HMM {
 
 class ModelManager {
     
+    init() {
+        let text = String.stringWithContentsOfFile("foo", encoding: NSUTF8StringEncoding, error: nil)
+        if (text != nil) {
+            for line in text!.componentsSeparatedByString("\n") {
+                
+            }
+        }
+    }
 }

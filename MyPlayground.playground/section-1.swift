@@ -34,6 +34,45 @@ extension Array {
     }
 }
 
+extension String {
+    // Convenience method for getting regular expression captures
+    func matches(regex: NSRegularExpression) -> Array<String>? {
+        var captures = Array<String>()
+        let matches = regex.matchesInString(self, options: nil, range: NSMakeRange(0, countElements(self))) as Array<NSTextCheckingResult>
+        
+        for match in matches {
+            for var i = 1; i < match.numberOfRanges; ++i {
+                let r = match.rangeAtIndex(i)
+                //match.ra
+               // let r2 = Range<String.Index>()
+                let subStart = advance(self.startIndex, r.location, self.endIndex)
+                let subEnd = advance(subStart, r.length, self.endIndex)
+                captures.append(self.substringWithRange(Range(start: subStart, end: subEnd)))
+                //captures.append(self.substr)
+            }
+        }
+        if captures.count > 0 {
+            return captures
+        } else {
+            return nil
+        }
+    }
+    
+    // returns the first match, or nil if there are none
+    func firstMatch(regex: NSRegularExpression) -> String? {
+        let matches = self.matches(regex)
+        if matches != nil {
+            return matches![0]
+        } else {
+           return nil
+        }
+    }
+}
+
+var s = "foobar" as NSString
+
+s.substringWithRange(NSMakeRange(0, 2))
+
 var x = CDouble[](1...3)
 
 var v = x
@@ -62,18 +101,11 @@ let filename = "/Users/jmichaels/Repositories/MachineLearning/hmm.txt"
 //}
 
 let newHMMLine = "~h \"mo\""
-
-let stateLine = "<STATE> 5foo"
-
-
-
-let match = stateLine.rangeOfString("<STATE> ([0-9])", options: .RegularExpressionSearch)
-
+let stateLine = "<STATE> 5"
 
 let stateRegex = ~"<STATE> ([0-9])"
 
-//stateRegex.matchesInString(stateLine, options: nil, range: nil)
+stateLine.firstMatch(~"f")
+newHMMLine.firstMatch(~"~(.) \"(.+)\"")
 
-let result = stateRegex.firstMatchInString(stateLine, options: nil, range: NSMakeRange(0, countElements(stateLine)))
 
-result.rangeAtIndex(1)

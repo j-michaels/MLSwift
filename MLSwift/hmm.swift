@@ -74,12 +74,33 @@ class SentenceHMM: HMM {
 }
 
 class ModelManager {
+    var models = Dictionary<String, HMM>()
+    var currentModel: HMM? = nil
     
     init() {
         let text = String.stringWithContentsOfFile("foo", encoding: NSUTF8StringEncoding, error: nil)
         if (text != nil) {
             for line in text!.componentsSeparatedByString("\n") {
+                let paramRegex = ~"<([A-Z]+)> ([0-9])"
+                let newHMMRegex = ~"~(.) \"(.+)\""
                 
+                if let match = line.matches(newHMMRegex) {
+                    let name = match.last()
+                    if name != nil {
+                        currentModel = HMM()
+                        models[name!] = currentModel
+                    }
+                } else if let match = line.matches(paramRegex) {
+                    let param = match.first()
+                    let value = match.last()
+                    if (param && value && currentModel) {
+                        
+                    }
+                } else {
+                    if (currentModel) {
+                        
+                    }
+                }
             }
         }
     }

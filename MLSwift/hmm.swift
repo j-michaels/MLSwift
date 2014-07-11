@@ -15,10 +15,10 @@ func ** (num: Double, power: Double) -> Double {
 }
 
 class Mixture {
-    var weight: Int
-    var variance = Matrix()
-    var mean = Matrix()
-    var inverseVariance = Matrix()
+    var weight: Double
+    var variance = FloatMatrix()
+    var mean = FloatMatrix()
+    var inverseVariance = FloatMatrix()
     var denominator = 1
     
     init(weight: Double) {
@@ -34,21 +34,9 @@ class State {
 
     }
     
-    func switchNewMixture(weight: Int) {
+    func switchNewMixture(weight: Double) {
         currentMixture = Mixture(weight: weight)
         mixtures.append(currentMixture!)
-    }
-    
-    func setCurrentMean(mean: Matrix) {
-        // make sure that later when this is used, it's converted to a column vector
-        if currentMixture {
-            currentMixture!.mean = mean
-        }
-        
-    }
-    
-    func setMixtureMeanTotal(total: Int) {
-        //currentMixture["mean total"] = total
     }
     
     func setMixtureVariance(variance: Any) {
@@ -67,15 +55,39 @@ class State {
 }
 
 class HMM {
-    //var states = Array<State>()
     var states = Array<Array<Mixture>>()
-    var stateTransitions = Array<Array<Double>>()
+    var stateTransitions = FloatMatrix()
+    var currentMixture: Mixture?
     
+    // add to the state transitions
+    func addTransitions(transitions: Array<Double>) {
+        // do something
+    }
+    
+    // creates a mixture on the last created state
     func newMixture(value: Double) {
         var mix = Mixture(weight: value)
         var state: Array<Mixture> = [mix]
         states.append(state)
     }
+    
+    // sets the mean of the last created mixture
+    func setMean(mean: FloatMatrix) {
+        // make sure that later when this is used, it's converted to a column vector
+        if currentMixture {
+            currentMixture!.mean = mean
+        }
+        
+    }
+    
+    func setMeanTotal(total: Int) {
+        //currentMixture["mean total"] = total
+    }
+    
+    func setVariance(variance: FloatMatrix) {
+        
+    }
+    
 }
 
 class SentenceHMM: HMM {
@@ -94,6 +106,8 @@ class ModelManager {
             for line in text!.componentsSeparatedByString("\n") {
                 let paramRegex = ~"<([A-Z]+)> ([0-9])"
                 let newHMMRegex = ~"~(.) \"(.+)\""
+                var lastParam = ""
+                var initial = Array<Double>()
                 
                 if let match = line.matches(newHMMRegex) {
                     let name = match.last()
@@ -108,23 +122,36 @@ class ModelManager {
                     if (param && value && currentModel) {
                         // set the value for the current model
                         
-                        let v = value!
-                        let p = param!
-                        
-                        var state = currentModel?.states.first()
-                        var mixture = currentModel?.states.first()?.first()
-                        
                         switch (param!) {
                         case "MIXTURE":
-                            currentModel?.newMixture(value!)
+                            currentModel?.newMixture(value!.bridgeToObjectiveC().doubleValue)
                             //currentModel!.newMixture(v.toInt())
                         default:
                             let foo = "bar"
                         }
                     }
                 } else {
+                    // update last
                     if (currentModel) {
-                        
+                        let data = line.componentsSeparatedByString(" ").map { val in
+                            val.bridgeToObjectiveC().doubleValue
+                        }
+                        switch (lastParam) {
+                        case "VARIANCE":
+                            let variance = FloatMatrix(diagonal: data)
+                            currentModel?.setVariance(variance)
+                        case "MEAN":
+                            let mean = FloatMatrix(columnVector: data)
+                            currentModel?.setMean(mean)
+                        case "TRANSP":
+                            if (initial.count == 0) {
+                                initial = data
+                            } else {
+                                currentModel?.addTransitions(data)
+                            }
+                        default:
+                            let foo = "bar"
+                        }
                     }
                 }
             }

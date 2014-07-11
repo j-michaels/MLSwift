@@ -60,12 +60,7 @@ extension String {
     
     // returns the first match, or nil if there are none
     func firstMatch(regex: NSRegularExpression) -> String? {
-        let matches = self.matches(regex)
-        if matches != nil {
-            return matches![0]
-        } else {
-           return nil
-        }
+        return self.matches(regex)?[0]
     }
 }
 
@@ -107,5 +102,3 @@ let stateRegex = ~"<STATE> ([0-9])"
 
 stateLine.firstMatch(~"f")
 newHMMLine.firstMatch(~"~(.) \"(.+)\"")
-
-

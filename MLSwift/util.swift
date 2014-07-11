@@ -77,7 +77,7 @@ extension String {
     // returns the first match, or nil if there are none
     func firstMatch(regex: NSRegularExpression) -> String? {
         let matches = self.matches(regex)
-        if matches != nil {
+        if matches {
             return matches![0]
         } else {
             return nil
@@ -94,10 +94,10 @@ extension String {
     }
     func substring(from: Int) -> String {
         let end = countElements(self)
-        return self[from..end]
+        return self[from..<end]
     }
     func substring(from: Int, length: Int) -> String {
         let end = from + length
-        return self[from..end]
+        return self[from..<end]
     }
 }

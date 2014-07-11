@@ -21,14 +21,14 @@ class Mixture {
     var inverseVariance = Matrix()
     var denominator = 1
     
-    init(weight: Int) {
+    init(weight: Double) {
         self.weight = weight
     }
 }
 
 class State {
     var mixtures = Array<Mixture>()
-    var currentMixture: Mixture?
+    var currentMixture: Mixture? = nil
     
     init() {
 
@@ -41,7 +41,10 @@ class State {
     
     func setCurrentMean(mean: Matrix) {
         // make sure that later when this is used, it's converted to a column vector
-        //currentMixture.mean = mean
+        if currentMixture {
+            currentMixture!.mean = mean
+        }
+        
     }
     
     func setMixtureMeanTotal(total: Int) {
@@ -64,7 +67,15 @@ class State {
 }
 
 class HMM {
+    //var states = Array<State>()
+    var states = Array<Array<Mixture>>()
+    var stateTransitions = Array<Array<Double>>()
     
+    func newMixture(value: Double) {
+        var mix = Mixture(weight: value)
+        var state: Array<Mixture> = [mix]
+        states.append(state)
+    }
 }
 
 class SentenceHMM: HMM {
@@ -93,8 +104,23 @@ class ModelManager {
                 } else if let match = line.matches(paramRegex) {
                     let param = match.first()
                     let value = match.last()
+                    
                     if (param && value && currentModel) {
+                        // set the value for the current model
                         
+                        let v = value!
+                        let p = param!
+                        
+                        var state = currentModel?.states.first()
+                        var mixture = currentModel?.states.first()?.first()
+                        
+                        switch (param!) {
+                        case "MIXTURE":
+                            currentModel?.newMixture(value!)
+                            //currentModel!.newMixture(v.toInt())
+                        default:
+                            let foo = "bar"
+                        }
                     }
                 } else {
                     if (currentModel) {

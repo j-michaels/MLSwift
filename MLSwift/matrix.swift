@@ -16,10 +16,6 @@ class FloatMatrix {
     var m: Int = 0
     var n: Int = 0
     
-    init() {
-        
-    }
-    
     init(diagonal: Array<Double>) {
         var index = 0
         for i in diagonal {

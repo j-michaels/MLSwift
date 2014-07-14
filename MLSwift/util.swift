@@ -55,6 +55,10 @@ extension Array {
 }
 
 extension String {
+    func split(separator: String) -> Array<String> {
+        return self.componentsSeparatedByString(separator)
+    }
+    
     // Convenience method for getting regular expression captures
     func matches(regex: NSRegularExpression) -> Array<String>? {
         var captures = Array<String>()
